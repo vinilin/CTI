@@ -1,0 +1,25 @@
+// TCallLog.cpp: implementation of the TCallLog class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "RecordCallLog.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+namespace CTI
+{
+    namespace PP
+	{
+        RecordCallLog::RecordCallLog()
+        {
+
+        }
+
+        RecordCallLog::~RecordCallLog()
+        {
+
+        }
+    }
+}

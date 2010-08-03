@@ -1,0 +1,49 @@
+// Utility.cpp: implementation of the Utility class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "Utility.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+namespace CTI
+{
+	namespace PP //protocal parse
+	{
+		Utility::Utility()
+		{
+
+		}
+
+		Utility::~Utility()
+		{
+
+		}
+		void Utility::DataCopy(LINE_HEAD* src, LINE_HEAD* dst)
+		{
+
+
+
+}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

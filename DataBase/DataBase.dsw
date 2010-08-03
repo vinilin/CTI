@@ -1,0 +1,131 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# 警告: 不能编辑或删除该工作区文件！
+
+###############################################################################
+
+Project: "CommonLib"=.\CommonLib\CommonLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "DataBase"=.\DataBase.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name CommonLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MysqlDB
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name OracleDB
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ProtocalParse
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name SqlServerDB
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name DbAccess
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "DbAccess"=.\DbAccess\DbAccess.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "MysqlDB"=.\MysqlDB\MysqlDB.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "OracleDB"=.\OracleDB\OracleDB.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ProtocalParse"=.\ProtocalParse\ProtocalParse.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "SqlServerDB"=.\SqlServerDB\SqlServerDB.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Test"=.\Test\Test.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

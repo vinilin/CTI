@@ -1,0 +1,25 @@
+// TAgentNo.cpp: implementation of the TAgentNo class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "RecordAgentNo.h"
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+namespace CTI
+{
+    namespace PP
+	{
+        RecordAgentNo::RecordAgentNo()
+        {
+
+        }
+
+        RecordAgentNo::~RecordAgentNo()
+        {
+
+        }
+    }
+}

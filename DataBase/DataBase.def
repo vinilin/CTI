@@ -1,0 +1,7 @@
+; DataBase.def : Declares the module parameters for the DLL.
+
+LIBRARY      "DataBase"
+DESCRIPTION  'DataBase Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
