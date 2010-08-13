@@ -44,6 +44,8 @@ static char THIS_FILE[] = __FILE__;
 CThreadPool g_threadPool;
 MessageQueue g_inQueue; // 输入队列
 MessageQueue g_outQueue; // 输出队列
+typedef ThSafeMap<int , struBASE_INIT_COMP*> ChinnalMap;
+ChinnalMap g_chinnalMap;
 BEGIN_MESSAGE_MAP(CServerApp, CWinApp)
 	//{{AFX_MSG_MAP(CServerApp)
 		// NOTE - the ClassWizard will add and remove mapping macros here.
@@ -70,11 +72,11 @@ CServerApp theApp;
 
 BOOL CServerApp::InitInstance()
 {
-	if (!AfxSocketInit())
-	{
-		AfxMessageBox(IDP_SOCKETS_INIT_FAILED);
-		return FALSE;
-	}
+    if (!AfxSocketInit())
+    {
+        AfxMessageBox(IDP_SOCKETS_INIT_FAILED);
+        return FALSE;
+    }
 
 	return TRUE;
 }
@@ -104,7 +106,10 @@ UINT CServerApp::MainTh(LPVOID param)
     }
     return 0;
 }
-
+void InitComp(MessageChunk* msg)
+{
+    
+}
 DWORD CServerApp::WorkTh(LPVOID param)
 {
     UserPoolData* ud = (UserPoolData*)param;
@@ -113,13 +118,13 @@ DWORD CServerApp::WorkTh(LPVOID param)
     {
     case D_BASE_INIT_COMP:
         // 通道初始化
-
+        InitComp(msg);
         break;
     case D_BASE_CALLIN:
-        // 定表处理
+        // 呼入通知
         break;
     case D_BASE_TRUNK_INFO:
-        // 动态表处理
+        // 通道状态变迁
         break;
     case D_DB_RESULT:
         // 定表处理
