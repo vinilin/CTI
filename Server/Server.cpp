@@ -5,6 +5,7 @@
 #include "Server.h"
 #include "CommonLib/CTI_Typedfile.h"
 #include "CommonLib/MessageQueue.h"
+#include "CommonLib/ThreadPool.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -40,7 +41,9 @@ static char THIS_FILE[] = __FILE__;
 
 /////////////////////////////////////////////////////////////////////////////
 // CServerApp
-
+CThreadPool g_threadPool;
+MessageQueue g_inQueue; // 输入队列
+MessageQueue g_outQueue; // 输出队列
 BEGIN_MESSAGE_MAP(CServerApp, CWinApp)
 	//{{AFX_MSG_MAP(CServerApp)
 		// NOTE - the ClassWizard will add and remove mapping macros here.
@@ -75,6 +78,33 @@ BOOL CServerApp::InitInstance()
 
 	return TRUE;
 }
+void CServerApp::Start()
+{
+	// 创建输入
+    m_mainTh = AfxBeginThread(CServerApp::MainTh,this);
+    // 创建输出线程
+    AfxBeginThread(CServerApp::OutTh,this);
+}
+
+UINT CServerApp::MainTh(LPVOID param)
+{
+    CServerApp* app = (CServerApp*)param;
+    
+    // 设置线程池内线程数量
+    g_threadPool.SetPoolSize(20);
+    
+    // 创建线程
+    g_threadPool.Create();
+    
+    while(true)
+    {
+        MessageQueue::ValueType msg = g_msgQueue.Pop();
+        //启动线程处理消息
+        g_threadPool.Run(CServerApp::WorkTh,msg,Low);
+    }
+    return 0;
+}
+
 DWORD CServerApp::WorkTh(LPVOID param)
 {
     UserPoolData* ud = (UserPoolData*)param;
@@ -82,24 +112,33 @@ DWORD CServerApp::WorkTh(LPVOID param)
     switch(msg->DataType())
     {
     case D_BASE_INIT_COMP:
-        // 添加数据库连接信息
-       // AddConnInof(msg);
+        // 通道初始化
+
         break;
     case D_BASE_CALLIN:
         // 定表处理
-       // RunSql(msg);
         break;
     case D_BASE_TRUNK_INFO:
         // 动态表处理
-        //RunDynSql(msg);
+        break;
+    case D_DB_RESULT:
+        // 定表处理
+        RunSql(msg);
+        break;
+    case D_DB_FIELD:
+        // 动态表处理
+        RunDynSql(msg);
         break;
     }
     //释放消息占用内存
     delete msg;
     return 0;
 }
-MessageQueue g_inQueue; // 输入队列
-MessageQueue g_outQueue; // 输出队列
+
+void Start()
+{
+    theApp.Start();
+}
 
 int Moduleinput(UINT unitid,unsigned short taskclass,unsigned short moduleid,UINT datatype,char * databuff,unsigned long datalen,UINT leave0,UINT leave1,char * leaveV)
 {

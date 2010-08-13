@@ -20,7 +20,7 @@ namespace CTI
         class ConnectionInfo  
         {
         private:
-			struConnectinfo m_connInfo;
+	    struConnectinfo m_connInfo;
         public:
             ConnectionInfo();
             virtual ~ConnectionInfo();
@@ -35,9 +35,9 @@ namespace CTI
             inline Common::int32 ConNumber() const{ return m_connInfo.conNumber; }
 
         public:
-			ConnectionInfo& operator= ( const struConnectinfo& o );
-			operator struConnectinfo() const;
-			bool operator== (const ConnectionInfo & rhs);
+            ConnectionInfo& operator= ( const struConnectinfo& o );
+            operator struConnectinfo() const;
+            bool operator== (const ConnectionInfo & rhs);
 
         };
     }

@@ -195,6 +195,7 @@ struct struBASE_INIT_COMP{
 	UINT VisualTrunkTotal;//虚拟通道个数；（模拟语音卡的声卡驱动；SIP虚拟通道应用）
 	UINT simuTrunkTotal;//模拟通道个数【内外线】
 };
+
 //-----------------通道状态迁移初始化结构------------------------
 /****************************************************************
 *具体应用为：初始化；摘机动作；挂机动作
@@ -206,7 +207,7 @@ struct struBASE_INIT_COMP{
 struct struBase_Trunk_Info{
 	UINT Line;//线路通道号【通道逻辑编号】
 	int  Trunkid;//通道实际编号
-	int	 Cardid;//DSP编号；模拟卡为空；数字卡为PCM编号
+	int  Cardid;//DSP编号；模拟卡为空；数字卡为PCM编号
 	int  Linetype;//线路类型【1:TUP数字；2：ISUP数字；3：PBXTUP数字；4：PBXISUP数字；5；模拟外线；6：模拟内线：7：PBX模拟外线；8：PBX模拟内线；9以后的参数预留】
 	int  LineState;//线路状态【统一使用标准表示 1：不可用 2：摘机；3：挂机（模拟通道使用）；4：空闲（数字通道使用）】
 };

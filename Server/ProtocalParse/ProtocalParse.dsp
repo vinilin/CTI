@@ -85,6 +85,18 @@ LIB32=link.exe -lib
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=.\BaseCallIn.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BaseInitComp.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\BaseTrunkInfo.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\ConnectionInfo.cpp
 # End Source File
 # Begin Source File
@@ -127,6 +139,18 @@ SOURCE=.\RecordSysOption.cpp
 # Begin Group "Header Files"
 
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
+# Begin Source File
+
+SOURCE=.\BaseCallIn.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\BaseInitComp.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\BaseTrunkInfo.h
+# End Source File
 # Begin Source File
 
 SOURCE=.\ConnectionInfo.h

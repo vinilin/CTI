@@ -14,8 +14,6 @@ namespace CTI
     {
         class GenericRecord  
         {
-        private:
-            
         public:
             GenericRecord();
             virtual ~GenericRecord();

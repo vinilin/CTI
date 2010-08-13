@@ -6,7 +6,7 @@
 #include "DBAccess/Connection.h"
 #include "ProtocalParse/MessageChunk.h"
 #include "ProtocalParse/DbInfo.h"
-#include "SqlServerDB/ado2.h"
+    
 #include "DBAccess/RecordFactory.h"
 #include "ProtocalParse/FieldInfo.h"
 #ifdef _DEBUG
@@ -243,7 +243,6 @@ UINT CDataBaseApp::OutTh(LPVOID param)
             
         delete msg;
     }
-
 }
 DWORD CDataBaseApp::WorkTh(LPVOID param)
 {

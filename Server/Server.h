@@ -13,14 +13,22 @@
 #endif
 
 #include "resource.h"		// main symbols
-
+#include "ProtocalParse/MessageChunk.h"
+#include "CommonLib/MessageQueue.h"
 /////////////////////////////////////////////////////////////////////////////
 // CServerApp
 // See Server.cpp for the implementation of this class
 //
+using namespace CTI::PP;
+using namespace CTI::Common;
+
+
+
 typedef QsynchronizeQueue<MessageChunk*> MessageQueue;
+
 class CServerApp : public CWinApp
 {
+    	CWinThread *m_mainTh;
 public:
 	CServerApp();
 
@@ -29,7 +37,15 @@ public:
 	//{{AFX_VIRTUAL(CServerApp)
 	public:
 	virtual BOOL InitInstance();
-	//}}AFX_VIRTUAL
+	//}}AFX_VIRTUAL]
+    void  Start();
+	// 主线程函数，获取消息并派送到线程池内处理
+	static UINT MainTh(LPVOID param); 
+    
+    // 工作线程函数，处理具体的消息。
+    static DWORD WINAPI WorkTh(LPVOID param);
+    
+    static UINT OutTh(LPVOID param);
 
 	//{{AFX_MSG(CServerApp)
 		// NOTE - the ClassWizard will add and remove member functions here.
@@ -43,5 +59,7 @@ public:
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
+extern "C" void AFX_EXT_API Start();
+extern "C" int AFX_EXT_API	Moduleinput(UINT unitid,unsigned short taskclass,unsigned short moduleid,UINT datatype,char * databuff,unsigned long datalen,UINT leave0,UINT leave1,char * leaveV);
 
 #endif // !defined(AFX_SERVER_H__E5AB8E81_30C7_40FD_A044_88AEBCB9F52F__INCLUDED_)
