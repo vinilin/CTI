@@ -1,0 +1,53 @@
+#ifndef ${TYPE_PREFIX_UPPER}_INTTYPES_H
+#define ${TYPE_PREFIX_UPPER}_INTTYPES_H
+
+#cmakedefine ${TYPE_PREFIX_UPPER}_HAVE_INTTYPES_H
+
+#ifdef ${TYPE_PREFIX_UPPER}_HAVE_INTTYPES_H
+#	include <inttypes.h>
+#endif //${TYPE_PREFIX_UPPER}_HAVE_INTTYPES_H
+
+
+typedef ${SBYTE_T} ${TYPE_PREFIX}_sbyte_t;
+
+typedef ${BYTE_T} ${TYPE_PREFIX}_byte_t;
+
+typedef ${INT16_T} ${TYPE_PREFIX}_int16_t;
+
+typedef ${UINT16_T} ${TYPE_PREFIX}_uint16_t;
+
+typedef ${INT32_T} ${TYPE_PREFIX}_int32_t;
+
+typedef ${UINT32_T} ${TYPE_PREFIX}_uint32_t;
+
+typedef ${INT64_T} ${TYPE_PREFIX}_int64_t;
+
+typedef ${UINT64_T} ${TYPE_PREFIX}_uint64_t;
+
+#ifdef __cplusplus
+
+namespace ${CXX_NAMESPACE_BEGIN}{
+
+	typedef ::${TYPE_PREFIX}_sbyte_t sbyte_t;
+
+	typedef ::${TYPE_PREFIX}_byte_t byte_t;
+
+	typedef ::${TYPE_PREFIX}_int16_t int16_t;
+
+	typedef ::${TYPE_PREFIX}_uint16_t uint16_t;
+
+	typedef ::${TYPE_PREFIX}_int32_t int32_t;
+
+	typedef ::${TYPE_PREFIX}_uint32_t uint32_t;
+
+	typedef ::${TYPE_PREFIX}_int64_t int64_t;
+
+	typedef ::${TYPE_PREFIX}_uint64_t uint64_t;
+
+${CXX_NAMESPACE_END}
+
+#endif //__cplusplus
+
+
+
+#endif //${TYPE_PREFIX}_INTTYPES_H
